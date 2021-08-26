@@ -17,11 +17,12 @@ namespace GuessingGame
 
             while (parsedGuess != secretNumber && !outOfGuesses)
             {
-                
+
                 if (guessCount < guessLimit) 
                 {
                 Console.WriteLine("Try Again Bru");
-                Console.Write("What's Your Guess Bru? ");
+                int guessesLeft = guessLimit - guessCount;
+                Console.Write($"You Have {guessesLeft} Guesses Left Bru, What's Your Guess Bru?");
                 parsedGuess = int.Parse(Console.ReadLine());
                 guessCount++; 
                 }
@@ -35,6 +36,7 @@ namespace GuessingGame
                 {
                 Console.WriteLine("Nah Bru You Outta Guesses Bru");
                 }
+
                 else 
                 { 
                 Console.WriteLine("Ye Bru");
