@@ -1,46 +1,39 @@
 using System;
-
 namespace GuessingGame
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Can You Guess The Secret Number Bru?");
-            Console.Write("What's Your Guess Bru? ");
-            string guess = Console.ReadLine();
-            int parsedGuess = int.Parse(guess);
-            int secretNumber = 666;
-            int guessCount = 0;
-            int guessLimit = 3;
-            bool outOfGuesses = false;
+            int secretNumber = new Random().Next(1, 100);
 
-            while (parsedGuess != secretNumber && !outOfGuesses)
+            int GuessCount = 0;
+
+            Console.WriteLine("Guess the Secret Number Bru");
+            Console.WriteLine("Type a number between 1 and 100 and hit enter Bru");
+            int guess = int.Parse(Console.ReadLine());
+            while (GuessCount < 3)
             {
-
-                if (guessCount < guessLimit) 
+                if (guess == secretNumber) 
                 {
-                Console.WriteLine("Try Again Bru");
-                int guessesLeft = guessLimit - guessCount;
-                Console.Write($"You Have {guessesLeft} Guesses Left Bru, What's Your Guess Bru?");
-                parsedGuess = int.Parse(Console.ReadLine());
-                guessCount++; 
+                    Console.WriteLine("Ye Bru");
+                    break;
                 }
-
                 else
                 {
-                outOfGuesses = true;
+                    string GuessString = "guesses";
+                    if ((4-GuessCount) == 1)
+                    {
+                        GuessString = "guess";
+                    }
+                    GuessCount++;
+                    Console.WriteLine($"Nah Bru, You have {4-GuessCount} {GuessString} left Bru, Try again Bru");
+                    guess = int.Parse(Console.ReadLine());
                 }
-                
-                if (outOfGuesses)
-                {
+            }
+            if (guess != secretNumber)
+            {
                 Console.WriteLine("Nah Bru You Outta Guesses Bru");
-                }
-
-                else 
-                { 
-                Console.WriteLine("Ye Bru");
-                }
             }
         }
     }
