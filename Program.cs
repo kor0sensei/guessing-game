@@ -5,7 +5,7 @@ namespace GuessingGame
     {
         static void Main(string[] args)
         {
-            int secretNumber = new Random().Next(1, 100);
+            int SecretNumber = new Random().Next(1, 100);
 
             int GuessCount = 0;
             int Difficulty = 0;
@@ -36,7 +36,7 @@ namespace GuessingGame
 
                     case 42069:
                         Difficulty = 42069;
-                        GuessCount = 999;
+                        GuessCount = 1000;
                         Console.WriteLine("Imagine being a Dogwater cheater Bru");
                         break;
 
@@ -46,10 +46,10 @@ namespace GuessingGame
                 }
             }
             Console.WriteLine("Type a number between 1 and 100 and hit enter Bru");
-            int guess = int.Parse(Console.ReadLine());
+            int Guess = int.Parse(Console.ReadLine());
             while (GuessCount > 1)
             {
-                if (guess == secretNumber) 
+                if (Guess == SecretNumber) 
                 {
                     Console.WriteLine("Ye Bru");
                     break;
@@ -60,21 +60,21 @@ namespace GuessingGame
                     string GuessString = "guesses";
                     if ((GuessCount) == 2)
                     {
-                        GuessString = "guess";
+                        GuessString = "Guess";
                     }
-                    if (guess < secretNumber)
+                    if (Guess < SecretNumber)
                     {
                         HighLowString = "too low";
                     }
-                    if (GuessCount != 1000)
+                    if (GuessCount != 1001)
                     {
                         GuessCount--;
                     }
-                    Console.WriteLine($"Nah Bru {guess} is {HighLowString} Bru, You have {GuessCount} {GuessString} left Bru, Try again Bru");
-                    guess = int.Parse(Console.ReadLine());
+                    Console.WriteLine($"Nah Bru {Guess} is {HighLowString} Bru, You have {GuessCount} {GuessString} left Bru, Try again Bru");
+                    Guess = int.Parse(Console.ReadLine());
                 }
             }
-            if (guess != secretNumber)
+            if (Guess != SecretNumber)
             {
                 Console.WriteLine("Nah Bru You Outta Guesses Bru");
             }
