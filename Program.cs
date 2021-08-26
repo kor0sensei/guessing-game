@@ -8,34 +8,40 @@ namespace GuessingGame
             int secretNumber = new Random().Next(1, 100);
 
             int GuessCount = 0;
-            int DifficultyLevel = 0;
+            int Difficulty = 0;
 
             Console.WriteLine("Guess the Secret Number Bru");
-            Console.WriteLine("Please enter a difficulty level between 1 and 3:");
-            while(DifficultyLevel == 0)
+            Console.WriteLine("Enter a difficulty easy to hard 1 to 3 Bru");
+            while(Difficulty == 0)
             {
                 switch(int.Parse(Console.ReadLine()))
                 {
                     case 1:
-                        DifficultyLevel = 1;
+                        Difficulty = 1;
                         GuessCount = 8;
-                        Console.WriteLine("Difficulty set to 'easy.' You have eight guesses to find the secret number.");
+                        Console.WriteLine("Easy Bru, You have 8 guesses to find the secret number Bru");
                         break;
 
                     case 2:
-                        DifficultyLevel = 2;
+                        Difficulty = 2;
                         GuessCount = 6;
-                        Console.WriteLine("Difficulty set to 'medium.' You have six guesses to find the secret number.");
+                        Console.WriteLine("Medium Bru, You have 6 guesses to find the secret number Bru");
                         break;
 
                     case 3:
-                        DifficultyLevel = 3;
+                        Difficulty = 3;
                         GuessCount = 4;
-                        Console.WriteLine("Difficulty set to 'hard.' You have four guesses to find the secret number.");
+                        Console.WriteLine("Hard Bru, You have 4 guesses to find the secret number Bru");
+                        break;
+
+                    case 42069:
+                        Difficulty = 42069;
+                        GuessCount = 999;
+                        Console.WriteLine("Imagine being a Dogwater cheater Bru");
                         break;
 
                     default:
-                        Console.WriteLine("You must enter a number between 1 and 3 to continue:");
+                        Console.WriteLine("Enter a difficulty level easy to hard 1 to 3 Bru");
                         break;
                 }
             }
@@ -60,7 +66,10 @@ namespace GuessingGame
                     {
                         HighLowString = "too low";
                     }
-                    GuessCount--;
+                    if (GuessCount != 1000)
+                    {
+                        GuessCount--;
+                    }
                     Console.WriteLine($"Nah Bru {guess} is {HighLowString} Bru, You have {GuessCount} {GuessString} left Bru, Try again Bru");
                     guess = int.Parse(Console.ReadLine());
                 }
