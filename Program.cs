@@ -6,20 +6,39 @@ namespace GuessingGame
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Can You Guess The Secret Number?");
-            Console.Write("What is your guess? ");
+            Console.WriteLine("Can You Guess The Secret Number Bru?");
+            Console.Write("What's Your Guess Bru? ");
             string guess = Console.ReadLine();
-            Console.WriteLine($"Your guess is: {guess}");
             int parsedGuess = int.Parse(guess);
             int secretNumber = 666;
+            int guessCount = 0;
+            int guessLimit = 3;
+            bool outOfGuesses = false;
 
-            if (parsedGuess == secretNumber)
+            while (parsedGuess != secretNumber && !outOfGuesses)
             {
+                
+                if (guessCount < guessLimit) 
+                {
+                Console.WriteLine("Try Again Bru");
+                Console.Write("What's Your Guess Bru? ");
+                parsedGuess = int.Parse(Console.ReadLine());
+                guessCount++; 
+                }
+
+                else
+                {
+                outOfGuesses = true;
+                }
+                
+                if (outOfGuesses)
+                {
+                Console.WriteLine("Nah Bru You Outta Guesses Bru");
+                }
+                else 
+                { 
                 Console.WriteLine("Ye Bru");
-            }
-            else
-            {
-                Console.WriteLine("Nah Bru");
+                }
             }
         }
     }
