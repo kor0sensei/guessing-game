@@ -21,13 +21,18 @@ namespace GuessingGame
                 }
                 else
                 {
+                    string HighLowString = "too high";
                     string GuessString = "guesses";
                     if ((4-GuessCount) == 1)
                     {
                         GuessString = "guess";
                     }
+                    if (guess < secretNumber)
+                    {
+                        HighLowString = "too low";
+                    }
                     GuessCount++;
-                    Console.WriteLine($"Nah Bru, You have {4-GuessCount} {GuessString} left Bru, Try again Bru");
+                    Console.WriteLine($"Nah Bru {guess} is {HighLowString} Bru, You have {4-GuessCount} {GuessString} left Bru, Try again Bru");
                     guess = int.Parse(Console.ReadLine());
                 }
             }
